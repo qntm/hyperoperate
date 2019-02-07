@@ -1,0 +1,24 @@
+{
+  "name": "hyperoperate",
+  "version": "1.0.0",
+  "description": "Hyperoperations!",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx jest"
+  },
+  "keywords": [
+    "ackermann",
+    "exponent",
+    "tetration",
+    "pentation",
+    "math",
+    "maths",
+    "arrow",
+    "notation"
+  ],
+  "author": "qntm",
+  "license": "MIT",
+  "devDependencies": {
+    "jest": "^24.1.0"
+  }
+}
