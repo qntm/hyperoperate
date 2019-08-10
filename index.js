@@ -79,16 +79,13 @@ module.exports = (...args) => {
 				// 9946433649006084096
 				return 1.3407807929942597e+154
 			}
-			return Infinity
 		}
 		if (b === 4) {
 			// a^a^a^a
 			if (a === 2) {
-				return 4 ** 8 // 65536
+				return 65536
 			}
-			return Infinity
 		}
-		return Infinity
 	}
 
 	// pentation: tetrate {a} to itself, {b} times
@@ -98,16 +95,13 @@ module.exports = (...args) => {
 			if (a === 3) {
 				return 7625597484987
 			}
-			return Infinity
 		}
 		if (b === 3) {
 			// a^^a^^a
 			if (a === 2) {
 				return 65536
 			}
-			return Infinity
 		}
-		return Infinity
 	}
 
 	// No other meaningful results

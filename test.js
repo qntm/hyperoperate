@@ -1,4 +1,4 @@
-const H = require('.')
+const H = require('./index3')
 
 describe('H', () => {
 	describe('input validation', () => {

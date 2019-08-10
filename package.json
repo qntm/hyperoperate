@@ -1,6 +1,6 @@
 {
   "name": "hyperoperate",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Hyperoperations!",
   "main": "index.js",
   "scripts": {
@@ -19,6 +19,6 @@
   "author": "qntm",
   "license": "MIT",
   "devDependencies": {
-    "jest": "^24.1.0"
+    "jest": "^24.8.0"
   }
 }
