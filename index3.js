@@ -16,7 +16,7 @@ module.exports = (...args) => {
 
 	const [n, a, b] = args
 
-	const finiteResults = {
+	return {
 		[n /* >= 6 */]: {
 			[a /* >= 3 */]: [1, a],
 			0: { [b]: 1 - b % 2 },
@@ -50,9 +50,5 @@ module.exports = (...args) => {
 			2: [1, 2, 4, 65536],
 			3: [1, 3, 7625597484987]
 		}
-	}
-
-	const finiteResult = finiteResults[n][a][b]
-
-	return finiteResult === undefined ? Infinity : finiteResult
+	}[n][a][b] ?? Infinity
 }
