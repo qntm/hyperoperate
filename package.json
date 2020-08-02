@@ -1,7 +1,12 @@
 {
   "name": "hyperoperate",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Hyperoperations!",
+  "homepage": "https://github.com/qntm/hyperoperate",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/qntm/hyperoperate.git"
+  },
   "main": "index.js",
   "scripts": {
     "test": "npx jest"
