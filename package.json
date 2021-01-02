@@ -1,13 +1,13 @@
 {
   "name": "hyperoperate",
-  "version": "1.0.4",
+  "version": "1.1.0",
   "description": "Hyperoperations!",
   "homepage": "https://github.com/qntm/hyperoperate",
   "repository": {
     "type": "git",
     "url": "git://github.com/qntm/hyperoperate.git"
   },
-  "main": "src/index.js",
+  "main": "src",
   "scripts": {
     "postpublish": "npm version patch && git push",
     "pretest": "npx standard",
