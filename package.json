@@ -1,14 +1,16 @@
 {
   "name": "hyperoperate",
-  "version": "1.0.3",
+  "version": "1.1.0",
   "description": "Hyperoperations!",
   "homepage": "https://github.com/qntm/hyperoperate",
   "repository": {
     "type": "git",
     "url": "git://github.com/qntm/hyperoperate.git"
   },
-  "main": "index.js",
+  "main": "src",
   "scripts": {
+    "postpublish": "npm version patch && git push",
+    "pretest": "npx standard",
     "test": "npx jest"
   },
   "keywords": [
@@ -24,6 +26,11 @@
   "author": "qntm",
   "license": "MIT",
   "devDependencies": {
-    "jest": "^26.4.0"
-  }
+    "jest": "^24.8.0",
+    "standard": "^16.0.3"
+  },
+  "files": [
+    "src",
+    "!src/**/*.spec.js"
+  ]
 }
