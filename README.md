@@ -8,7 +8,7 @@ This module exports the [hyperoperation](https://en.wikipedia.org/wiki/Hyperoper
 > *H*(*n*, *a*, 0) = 1<br/>
 > *H*(*n*, *a*, *b*) = *H*(*n* - 1, *a*, *H*(*n*, *a*, *b* - 1))<br/>
 
-`H` accepts only non-negative integers `n`, `a` and `b`. Notably, `H` is implemented entirely without recursion and returns results in extremely good time!
+`H` accepts only non-negative integers `n`, `a` and `b`.
 
 Note that for the purposes of this module, 0 to the power of 0 is 1.
 
