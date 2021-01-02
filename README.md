@@ -43,3 +43,13 @@ H(5, 2, 3) // 2^^^3 = 2^^2^^2 = 2^^4 = 2^2^2^2 = 65536
 
 // and so on...
 ```
+
+The result is rounded to the nearest JavaScript number. If the result is too large to express as a JavaScript number, `Infinity` is returned.
+
+`hyperoperate` will also accept a trio of `BigInt`s. In this case, the return value is also a `BigInt`:
+
+```js
+H(4n, 5n, 3n) // 5^^3 = 5^5^5 = 5^3125 = 1911...03125n
+```
+
+`hyperoperate` throws an exception if passed a mixture of regular JavaScript numbers and `BigInt`s. If the result is too large to express as a `BigInt`, a `RangeError` is thrown.

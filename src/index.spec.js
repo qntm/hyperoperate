@@ -429,11 +429,11 @@ describe('H', () => {
         })
 
         it('works when b is 5n', () => {
-          expect(H4(2n, 6n)).toBe(H.OVERFLOW)
+          expect(() => H4(2n, 6n)).toThrow(RangeError)
         })
 
         it('works when b is BigInt(Number.MAX_VALUE)', () => {
-          expect(H4(2n, BigInt(Number.MAX_VALUE))).toBe(H.OVERFLOW)
+          expect(() => H4(2n, BigInt(Number.MAX_VALUE))).toThrow(RangeError)
         })
       })
 
@@ -442,8 +442,8 @@ describe('H', () => {
         expect(H4(3n, 1n)).toBe(3n)
         expect(H4(3n, 2n)).toBe(27n)
         expect(H4(3n, 3n)).toBe(7625597484987n)
-        expect(H4(3n, 4n)).toBe(H.OVERFLOW)
-        expect(H4(3n, BigInt(Number.MAX_VALUE))).toBe(H.OVERFLOW)
+        expect(() => H4(3n, 4n)).toThrow(RangeError)
+        expect(() => H4(3n, BigInt(Number.MAX_VALUE))).toThrow(RangeError)
       })
 
       it('works when a is 4n', () => {
@@ -451,8 +451,8 @@ describe('H', () => {
         expect(H4(4n, 1n)).toBe(4n)
         expect(H4(4n, 2n)).toBe(256n)
         expect(H4(4n, 3n)).toBe(4n ** 4n ** 4n)
-        expect(H4(4n, 4n)).toBe(H.OVERFLOW)
-        expect(H4(4n, BigInt(Number.MAX_VALUE))).toBe(H.OVERFLOW)
+        expect(() => H4(4n, 4n)).toThrow(RangeError)
+        expect(() => H4(4n, BigInt(Number.MAX_VALUE))).toThrow(RangeError)
       })
 
       it('works when a is 5n', () => {
@@ -460,31 +460,31 @@ describe('H', () => {
         expect(H4(5n, 1n)).toBe(5n)
         expect(H4(5n, 2n)).toBe(3125n)
         expect(H4(5n, 3n)).toBe(5n ** 3125n) // a very large literal
-        expect(H4(5n, 4n)).toBe(H.OVERFLOW)
-        expect(H4(5n, BigInt(Number.MAX_VALUE))).toBe(H.OVERFLOW)
+        expect(() => H4(5n, 4n)).toThrow(RangeError)
+        expect(() => H4(5n, BigInt(Number.MAX_VALUE))).toThrow(RangeError)
       })
 
       it('works when a is 143n', () => {
         expect(H4(143n, 0n)).toBe(1n)
         expect(H4(143n, 1n)).toBe(143n)
         expect(H4(143n, 2n)).toBe(143n ** 143n) // medium-sized literal
-        expect(H4(143n, 3n)).toBe(H.OVERFLOW)
-        expect(H4(143n, BigInt(Number.MAX_VALUE))).toBe(H.OVERFLOW)
+        expect(() => H4(143n, 3n)).toThrow(RangeError)
+        expect(() => H4(143n, BigInt(Number.MAX_VALUE))).toThrow(RangeError)
       })
 
       it('works when a is 144n', () => {
         expect(H4(144n, 0n)).toBe(1n)
         expect(H4(144n, 1n)).toBe(144n)
         expect(H4(144n, 2n)).toBe(144n ** 144n) // medium-sized literal
-        expect(H4(144n, 3n)).toBe(H.OVERFLOW)
-        expect(H4(144n, BigInt(Number.MAX_VALUE))).toBe(H.OVERFLOW)
+        expect(() => H4(144n, 3n)).toThrow(RangeError)
+        expect(() => H4(144n, BigInt(Number.MAX_VALUE))).toThrow(RangeError)
       })
 
       it('works when a is BigInt(Number.MAX_VALUE)', () => {
         expect(H4(BigInt(Number.MAX_VALUE), 0n)).toBe(1n)
         expect(H4(BigInt(Number.MAX_VALUE), 1n)).toBe(BigInt(Number.MAX_VALUE))
-        expect(H4(BigInt(Number.MAX_VALUE), 2n)).toBe(H.OVERFLOW)
-        expect(H4(BigInt(Number.MAX_VALUE), BigInt(Number.MAX_VALUE))).toBe(H.OVERFLOW)
+        expect(() => H4(BigInt(Number.MAX_VALUE), 2n)).toThrow(RangeError)
+        expect(() => H4(BigInt(Number.MAX_VALUE), BigInt(Number.MAX_VALUE))).toThrow(RangeError)
       })
     })
 
@@ -506,24 +506,24 @@ describe('H', () => {
         expect(H5(2n, 1n)).toBe(2n)
         expect(H5(2n, 2n)).toBe(4n)
         expect(H5(2n, 3n)).toBe(65536n)
-        expect(H5(2n, 4n)).toBe(H.OVERFLOW)
-        expect(H5(2n, BigInt(Number.MAX_VALUE))).toBe(H.OVERFLOW)
+        expect(() => H5(2n, 4n)).toThrow(RangeError)
+        expect(() => H5(2n, BigInt(Number.MAX_VALUE))).toThrow(RangeError)
 
         expect(H5(3n, 0n)).toBe(1n)
         expect(H5(3n, 1n)).toBe(3n)
         expect(H5(3n, 2n)).toBe(7625597484987n)
-        expect(H5(3n, 3n)).toBe(H.OVERFLOW)
-        expect(H5(3n, BigInt(Number.MAX_VALUE))).toBe(H.OVERFLOW)
+        expect(() => H5(3n, 3n)).toThrow(RangeError)
+        expect(() => H5(3n, BigInt(Number.MAX_VALUE))).toThrow(RangeError)
 
         expect(H5(4n, 0n)).toBe(1n)
         expect(H5(4n, 1n)).toBe(4n)
-        expect(H5(4n, 2n)).toBe(H.OVERFLOW)
-        expect(H5(4n, BigInt(Number.MAX_VALUE))).toBe(H.OVERFLOW)
+        expect(() => H5(4n, 2n)).toThrow(RangeError)
+        expect(() => H5(4n, BigInt(Number.MAX_VALUE))).toThrow(RangeError)
 
         expect(H5(BigInt(Number.MAX_VALUE), 0n)).toBe(1n)
         expect(H5(BigInt(Number.MAX_VALUE), 1n)).toBe(BigInt(Number.MAX_VALUE))
-        expect(H5(BigInt(Number.MAX_VALUE), 2n)).toBe(H.OVERFLOW)
-        expect(H5(BigInt(Number.MAX_VALUE), BigInt(Number.MAX_VALUE))).toBe(H.OVERFLOW)
+        expect(() => H5(BigInt(Number.MAX_VALUE), 2n)).toThrow(RangeError)
+        expect(() => H5(BigInt(Number.MAX_VALUE), BigInt(Number.MAX_VALUE))).toThrow(RangeError)
       })
     })
 
@@ -545,19 +545,19 @@ describe('H', () => {
         expect(H6(2n, 0n)).toBe(1n)
         expect(H6(2n, 1n)).toBe(2n)
         expect(H6(2n, 2n)).toBe(4n)
-        expect(H6(2n, 3n)).toBe(H.OVERFLOW)
-        expect(H6(2n, BigInt(Number.MAX_VALUE))).toBe(H.OVERFLOW)
+        expect(() => H6(2n, 3n)).toThrow(RangeError)
+        expect(() => H6(2n, BigInt(Number.MAX_VALUE))).toThrow(RangeError)
 
         expect(H6(3n, 0n)).toBe(1n)
         expect(H6(3n, 1n)).toBe(3n)
-        expect(H6(3n, 2n)).toBe(H.OVERFLOW)
-        expect(H6(3n, BigInt(Number.MAX_VALUE))).toBe(H.OVERFLOW)
+        expect(() => H6(3n, 2n)).toThrow(RangeError)
+        expect(() => H6(3n, BigInt(Number.MAX_VALUE))).toThrow(RangeError)
 
         expect(H6(BigInt(Number.MAX_VALUE), 0n)).toBe(1n)
         expect(H6(BigInt(Number.MAX_VALUE), 1n)).toBe(BigInt(Number.MAX_VALUE))
-        expect(H6(BigInt(Number.MAX_VALUE), 2n)).toBe(H.OVERFLOW)
-        expect(H6(BigInt(Number.MAX_VALUE), 3n)).toBe(H.OVERFLOW)
-        expect(H6(BigInt(Number.MAX_VALUE), BigInt(Number.MAX_VALUE))).toBe(H.OVERFLOW)
+        expect(() => H6(BigInt(Number.MAX_VALUE), 2n)).toThrow(RangeError)
+        expect(() => H6(BigInt(Number.MAX_VALUE), 3n)).toThrow(RangeError)
+        expect(() => H6(BigInt(Number.MAX_VALUE), BigInt(Number.MAX_VALUE))).toThrow(RangeError)
       })
     })
 
@@ -583,24 +583,24 @@ describe('H', () => {
         expect(Hmax(2n, 0n)).toBe(1n)
         expect(Hmax(2n, 1n)).toBe(2n)
         expect(Hmax(2n, 2n)).toBe(4n)
-        expect(Hmax(2n, 3n)).toBe(H.OVERFLOW)
-        expect(Hmax(2n, BigInt(Number.MAX_VALUE))).toBe(H.OVERFLOW)
+        expect(() => Hmax(2n, 3n)).toThrow(RangeError)
+        expect(() => Hmax(2n, BigInt(Number.MAX_VALUE))).toThrow(RangeError)
       })
 
       it('works when a is 3n', () => {
         expect(Hmax(3n, 0n)).toBe(1n)
         expect(Hmax(3n, 1n)).toBe(3n)
-        expect(Hmax(3n, 2n)).toBe(H.OVERFLOW)
-        expect(Hmax(3n, 3n)).toBe(H.OVERFLOW)
-        expect(Hmax(3n, BigInt(Number.MAX_VALUE))).toBe(H.OVERFLOW)
+        expect(() => Hmax(3n, 2n)).toThrow(RangeError)
+        expect(() => Hmax(3n, 3n)).toThrow(RangeError)
+        expect(() => Hmax(3n, BigInt(Number.MAX_VALUE))).toThrow(RangeError)
       })
 
       it('works when a is 1000000n', () => {
         expect(Hmax(1000000n, 0n)).toBe(1n)
         expect(Hmax(1000000n, 1n)).toBe(1000000n)
-        expect(Hmax(1000000n, 2n)).toBe(H.OVERFLOW)
-        expect(Hmax(1000000n, 3n)).toBe(H.OVERFLOW)
-        expect(Hmax(1000000n, BigInt(Number.MAX_VALUE))).toBe(H.OVERFLOW)
+        expect(() => Hmax(1000000n, 2n)).toThrow(RangeError)
+        expect(() => Hmax(1000000n, 3n)).toThrow(RangeError)
+        expect(() => Hmax(1000000n, BigInt(Number.MAX_VALUE))).toThrow(RangeError)
       })
 
       describe('when a is BigInt(Number.MAX_VALUE)', () => {
@@ -613,15 +613,15 @@ describe('H', () => {
         })
 
         it('works when b is 2n', () => {
-          expect(Hmax(BigInt(Number.MAX_VALUE), 2n)).toBe(H.OVERFLOW)
+          expect(() => Hmax(BigInt(Number.MAX_VALUE), 2n)).toThrow(RangeError)
         })
 
         it('works when b is 3n', () => {
-          expect(Hmax(BigInt(Number.MAX_VALUE), 3n)).toBe(H.OVERFLOW)
+          expect(() => Hmax(BigInt(Number.MAX_VALUE), 3n)).toThrow(RangeError)
         })
 
         it('works when b is BigInt(Number.MAX_VALUE)', () => {
-          expect(Hmax(BigInt(Number.MAX_VALUE), BigInt(Number.MAX_VALUE))).toBe(H.OVERFLOW)
+          expect(() => Hmax(BigInt(Number.MAX_VALUE), BigInt(Number.MAX_VALUE))).toThrow(RangeError)
         })
       })
     })
