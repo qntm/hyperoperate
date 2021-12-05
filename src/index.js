@@ -56,16 +56,19 @@ const bigH = (n, a, b) => {
     return 4n
   }
 
-  let result = a
-  for (let i = 1n; i < b; i++) {
-    // This can cause a stack explosion... unavoidable because H is not primitive recursive
-    result = bigH(n - 1n, a, result)
+  if (n < 6n) {
+    let result = a
+    for (let i = 1n; i < b; i++) {
+      result = bigH(n - 1n, a, result)
+    }
+    return result
   }
 
-  return result
+  // All other results (n >= 6, a >= 2, b >= 2) are too large to be computable on Earth computers.
+  throw RangeError('BigInt')
 }
 
-const H = (n, a, b) => {
+export default (n, a, b) => {
   if ([n, a, b].every(arg => typeof arg === 'bigint')) {
     return bigH(n, a, b)
   }
@@ -79,10 +82,7 @@ const H = (n, a, b) => {
       /* istanbul ignore if */
       if (!(
         error instanceof RangeError &&
-        (
-          error.message.includes('BigInt') || // BigInt overflow
-          error.message.includes('stack') // stack overflow
-        )
+        error.message.includes('BigInt') // BigInt overflow
       )) {
         throw error
       }
@@ -93,5 +93,3 @@ const H = (n, a, b) => {
 
   throw Error('Can only hyperoperate on three numbers or three BigInts')
 }
-
-module.exports = H

@@ -21,7 +21,7 @@ npm install hyperoperate
 ## Usage
 
 ```js
-const H = require('hyperoperate')
+import H from 'hyperoperate'
 
 // n = 0: successor (`a` is ignored)
 H(0, 1000, 3) // 4
