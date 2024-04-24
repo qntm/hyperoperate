@@ -1,5 +1,5 @@
 //@ts-check
-'use strict'
+
 /**
 @arg {bigint} n operation degree
 @arg {bigint} a base
