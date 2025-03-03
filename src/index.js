@@ -1,4 +1,11 @@
-// All arguments must be BigInts. Return value is a BigInt or a thrown RangeError
+//@ts-check
+
+/**
+@arg {bigint} n operation degree
+@arg {bigint} a base
+@arg {bigint} b exponent
+@throws {RangeError}
+*/
 const bigH = (n, a, b) => {
   if (n < 0n || a < 0n || b < 0n) {
     throw Error('Can only hyperoperate on non-negative integers')
@@ -68,15 +75,23 @@ const bigH = (n, a, b) => {
   throw RangeError('BigInt')
 }
 
+/**
+@template {number|bigint} T
+@arg {T} n operation degree
+@arg {T} a base
+@arg {T} b exponent
+@return {T}
+@throws {RangeError}
+*/
 export default (n, a, b) => {
   if ([n, a, b].every(arg => typeof arg === 'bigint')) {
-    return bigH(n, a, b)
+    return /**@type {T}*/(bigH(/**@type {bigint}*/(n), /**@type {bigint}*/(a), /**@type {bigint}*/(b)))
   }
 
   if ([n, a, b].every(arg => Number.isInteger(arg))) {
     // All plain doubles... convert inputs to `BigInt`s, then convert the result back to a double
     try {
-      return Number(bigH(BigInt(n), BigInt(a), BigInt(b)))
+      return /**@type {T}*/(Number(bigH(BigInt(n), BigInt(a), BigInt(b))))
     } catch (error) {
       // Not clear what other error could be thrown at this stage?
       /* istanbul ignore if */
@@ -88,7 +103,7 @@ export default (n, a, b) => {
       }
     }
 
-    return Infinity
+    return /**@type {T}*/(Infinity)
   }
 
   throw Error('Can only hyperoperate on three numbers or three BigInts')
